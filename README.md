@@ -1,4 +1,4 @@
 # talos-homelab
-Provisioning scripts for Talos 
+Provisioning scripts for Talos kubernetes cluster
 
 
