@@ -1,6 +1,6 @@
 # yaml-language-server: $schema=https://raw.githubusercontent.com/budimanjojo/talhelper/master/pkg/config/schemas/talconfig.json
 ---
-clusterName: talos-homelab
+clusterName: homelab
 talosVersion: v1.10.8
 kubernetesVersion: v1.32.0
 endpoint: https://192.168.1.170:6443
