@@ -11,7 +11,7 @@ cniConfig:
 allowSchedulingOnControlPlanes: true
 
 nodes:
-  - hostname: talos-cp-1
+  - hostname: talos-node1
     ipAddress: 192.168.1.172
     controlPlane: true
     installDisk: /dev/sda
@@ -22,7 +22,7 @@ nodes:
         vip:
           ip: 192.168.1.170
 
-  - hostname: talos-cp-2
+  - hostname: talos-node2
     ipAddress: 192.168.1.173
     controlPlane: true
     installDisk: /dev/sda
@@ -33,7 +33,7 @@ nodes:
         vip:
           ip: 192.168.1.170
 
-  - hostname: talos-cp-3
+  - hostname: talos-node3
     ipAddress: 192.168.1.174
     controlPlane: true
     installDisk: /dev/sda

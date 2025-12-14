@@ -88,19 +88,19 @@ apply-node-1:
 	@echo "Applying config to node 1 ($(NODE_1))..."
 	talosctl apply-config --insecure \
 		--nodes $(NODE_1) \
-		--file $(CONFIG_DIR)/$(CLUSTER_NAME)-talos-cp-1.yaml
+		--file $(CONFIG_DIR)/$(CLUSTER_NAME)-talos-node1.yaml
 
 apply-node-2:
 	@echo "Applying config to node 2 ($(NODE_2))..."
 	talosctl apply-config --insecure \
 		--nodes $(NODE_2) \
-		--file $(CONFIG_DIR)/$(CLUSTER_NAME)-talos-cp-2.yaml
+		--file $(CONFIG_DIR)/$(CLUSTER_NAME)-talos-node2.yaml
 
 apply-node-3:
 	@echo "Applying config to node 3 ($(NODE_3))..."
 	talosctl apply-config --insecure \
 		--nodes $(NODE_3) \
-		--file $(CONFIG_DIR)/$(CLUSTER_NAME)-talos-cp-3.yaml
+		--file $(CONFIG_DIR)/$(CLUSTER_NAME)-talos-node3.yaml
 
 apply-all: apply-node-1 apply-node-2 apply-node-3
 	@echo "All configs applied."

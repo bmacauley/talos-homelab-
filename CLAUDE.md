@@ -8,9 +8,9 @@ Provision a 3-node Talos Kubernetes cluster on Lenovo M700 mini PCs in a repeata
 
 | Role | Hostname | IP Address |
 |------|----------|------------|
-| Control Plane 1 | talos-cp-1 | 192.168.1.172 |
-| Control Plane 2 | talos-cp-2 | 192.168.1.173 |
-| Control Plane 3 | talos-cp-3 | 192.168.1.174 |
+| Control Plane 1 | talos-node1 | 192.168.1.172 |
+| Control Plane 2 | talos-node2 | 192.168.1.173 |
+| Control Plane 3 | talos-node3 | 192.168.1.174 |
 | VIP (API endpoint) | - | 192.168.1.170 |
 
 ### Design Decisions
