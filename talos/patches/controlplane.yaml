@@ -1,0 +1,22 @@
+# Control plane patches for Talos homelab cluster
+---
+cluster:
+  allowSchedulingOnControlPlanes: true
+  proxy:
+    disabled: false
+  discovery:
+    enabled: true
+    registries:
+      kubernetes:
+        disabled: false
+      service:
+        disabled: true
+
+machine:
+  kubelet:
+    extraArgs:
+      rotate-server-certificates: true
+  time:
+    disabled: false
+    servers:
+      - time.cloudflare.com

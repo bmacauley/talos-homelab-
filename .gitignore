@@ -1,0 +1,27 @@
+# Talos generated configs (contain secrets)
+talos/clusterconfig/*
+!talos/clusterconfig/.gitkeep
+
+# Talos secrets
+*.secret.yaml
+talsecret.yaml
+
+# Kubeconfig
+kubeconfig
+*.kubeconfig
+
+# ISO files
+*.iso
+
+# macOS
+.DS_Store
+
+# Editor
+*.swp
+*.swo
+*~
+
+# Python
+__pycache__/
+*.pyc
+.venv/
