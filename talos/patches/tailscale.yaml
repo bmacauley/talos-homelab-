@@ -1,0 +1,25 @@
+# Tailscale extension for remote access
+#
+# Before enabling:
+# 1. Generate a reusable auth key at https://login.tailscale.com/admin/settings/keys
+# 2. Create talsecret.yaml with your auth key (this file is gitignored)
+# 3. Uncomment the patches section in talconfig.yaml
+#
+# To create talsecret.yaml:
+# ---
+# tailscaleAuthKey: "tskey-auth-xxxxx"
+---
+machine:
+  install:
+    extensions:
+      - image: ghcr.io/siderolabs/tailscale:1.78.3
+
+  files:
+    - content: |
+        TS_AUTHKEY=${tailscaleAuthKey}
+        TS_ROUTES=192.168.1.0/24
+        TS_ACCEPT_DNS=false
+        TS_EXTRA_ARGS=--advertise-exit-node --reset
+      permissions: 0o644
+      path: /var/etc/tailscale/auth.env
+      op: create

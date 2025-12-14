@@ -1,0 +1,30 @@
+# Control plane patches for Talos homelab cluster
+---
+# Disable default CNI so we can use Flannel from talconfig
+cluster:
+  network:
+    cni:
+      name: none
+
+# Cluster settings
+cluster:
+  allowSchedulingOnControlPlanes: true
+  proxy:
+    disabled: false
+  discovery:
+    enabled: true
+    registries:
+      kubernetes:
+        disabled: false
+      service:
+        disabled: true
+
+# Machine settings
+machine:
+  kubelet:
+    extraArgs:
+      rotate-server-certificates: true
+  time:
+    disabled: false
+    servers:
+      - time.cloudflare.com
