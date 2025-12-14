@@ -1,0 +1,53 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/budimanjojo/talhelper/master/pkg/config/schemas/talconfig.json
+---
+clusterName: talos-homelab
+talosVersion: v1.10.8
+kubernetesVersion: v1.32.0
+endpoint: https://192.168.1.170:6443
+
+cniConfig:
+  name: flannel
+
+allowSchedulingOnControlPlanes: true
+
+nodes:
+  - hostname: talos-cp-1
+    ipAddress: 192.168.1.172
+    controlPlane: true
+    installDisk: /dev/sda
+    networkInterfaces:
+      - deviceSelector:
+          hardwareAddr: "*"
+        dhcp: true
+        vip:
+          ip: 192.168.1.170
+
+  - hostname: talos-cp-2
+    ipAddress: 192.168.1.173
+    controlPlane: true
+    installDisk: /dev/sda
+    networkInterfaces:
+      - deviceSelector:
+          hardwareAddr: "*"
+        dhcp: true
+        vip:
+          ip: 192.168.1.170
+
+  - hostname: talos-cp-3
+    ipAddress: 192.168.1.174
+    controlPlane: true
+    installDisk: /dev/sda
+    networkInterfaces:
+      - deviceSelector:
+          hardwareAddr: "*"
+        dhcp: true
+        vip:
+          ip: 192.168.1.170
+
+controlPlane:
+  patches:
+    - "@./patches/controlplane.yaml"
+
+# Uncomment after setting up Tailscale auth key
+# patches:
+#   - "@./patches/tailscale.yaml"
