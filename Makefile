@@ -7,8 +7,8 @@
 #   make kubeconfig    Get kubeconfig from cluster
 #   make health        Check cluster health
 
-.PHONY: help genconfig apply-all apply-node-1 apply-node-2 apply-node-3 \
-        bootstrap kubeconfig health dashboard reset upgrade
+.PHONY: help tools genconfig gensecret apply-all apply-node-1 apply-node-2 apply-node-3 \
+        bootstrap kubeconfig health dashboard services members reset upgrade
 
 # Configuration
 CLUSTER_NAME := homelab
@@ -26,6 +26,9 @@ ALL_NODES := $(NODE_1),$(NODE_2),$(NODE_3)
 # Default target
 help:
 	@echo "Talos Homelab - Available targets:"
+	@echo ""
+	@echo "  Prerequisites:"
+	@echo "    make tools          Install mise tools (talos, talhelper, kubectl)"
 	@echo ""
 	@echo "  Setup:"
 	@echo "    make genconfig      Generate machine configs from talconfig.yaml"
@@ -49,6 +52,19 @@ help:
 	@echo "    make upgrade        Upgrade Talos on all nodes"
 	@echo "    make reset          Reset all nodes (DESTRUCTIVE)"
 	@echo ""
+
+# =============================================================================
+# Prerequisites
+# =============================================================================
+
+tools:
+	@echo "Installing mise tools..."
+	mise install
+	@echo ""
+	@echo "Installed tools:"
+	@mise list
+	@echo ""
+	@echo "Run 'mise trust' if prompted to trust the config."
 
 # =============================================================================
 # Setup
