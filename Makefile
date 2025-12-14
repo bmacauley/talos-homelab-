@@ -11,7 +11,7 @@
         bootstrap kubeconfig health dashboard services members reset upgrade
 
 # Configuration
-CLUSTER_NAME := homelab
+CLUSTER_NAME := talos
 TALOS_DIR := talos
 CONFIG_DIR := $(TALOS_DIR)/clusterconfig
 TALOSCONFIG := $(CONFIG_DIR)/talosconfig
@@ -88,19 +88,19 @@ apply-node-1:
 	@echo "Applying config to node 1 ($(NODE_1))..."
 	talosctl apply-config --insecure \
 		--nodes $(NODE_1) \
-		--file $(CONFIG_DIR)/$(CLUSTER_NAME)-talos-node1.yaml
+		--file $(CONFIG_DIR)/talos-node1.yaml
 
 apply-node-2:
 	@echo "Applying config to node 2 ($(NODE_2))..."
 	talosctl apply-config --insecure \
 		--nodes $(NODE_2) \
-		--file $(CONFIG_DIR)/$(CLUSTER_NAME)-talos-node2.yaml
+		--file $(CONFIG_DIR)/talos-node2.yaml
 
 apply-node-3:
 	@echo "Applying config to node 3 ($(NODE_3))..."
 	talosctl apply-config --insecure \
 		--nodes $(NODE_3) \
-		--file $(CONFIG_DIR)/$(CLUSTER_NAME)-talos-node3.yaml
+		--file $(CONFIG_DIR)/talos-node3.yaml
 
 apply-all: apply-node-1 apply-node-2 apply-node-3
 	@echo "All configs applied."

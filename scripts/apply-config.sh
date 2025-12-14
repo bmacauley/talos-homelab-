@@ -17,12 +17,12 @@ CONFIG_DIR="${TALOS_DIR}/clusterconfig"
 
 # Node configuration
 declare -A NODES=(
-    ["talos-node1"]="192.168.1.172"
-    ["talos-node2"]="192.168.1.173"
-    ["talos-node3"]="192.168.1.174"
+    ["node1"]="192.168.1.172"
+    ["node2"]="192.168.1.173"
+    ["node3"]="192.168.1.174"
 )
 
-CLUSTER_NAME="homelab"
+CLUSTER_NAME="talos"
 
 apply_config() {
     local node=$1
